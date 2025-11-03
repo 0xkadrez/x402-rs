@@ -1,0 +1,12 @@
+[
+  {
+    "account_type": "solana",
+    "wallet": "EXAMPLE_SOLANA_ADDRESS_HERE",
+    "reason": "example reason - spam/abuse/fraud"
+  },
+  {
+    "account_type": "evm",
+    "wallet": "0xEXAMPLE_EVM_ADDRESS_HERE",
+    "reason": "example reason - terms violation"
+  }
+]

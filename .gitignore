@@ -1,0 +1,98 @@
+# Rust
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+*.pfx
+
+# AWS
+.aws/
+terraform.tfstate*
+.terraform/
+*.tfplan
+terraform.tfvars
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Node (if using any JS tooling)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Python (test scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+ENV/
+env/
+
+# Docker
+*.tar
+*.tar.gz
+
+# Test artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+.hypothesis/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# Generated documentation
+site/
+docs/_build/
+
+# Secrets (double-check these are ignored!)
+**/secrets.json
+**/credentials.json
+**/*secret*.json
+**/*private*.json
+
+# Blacklist (may contain sensitive address blocking information)
+config/blacklist.json

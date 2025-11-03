@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  facilitator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: facilitator
+    image: facilitator:latest
+
+    # Environment variables from .env file
+    env_file:
+      - .env
+
+    # Port mapping (internal:external)
+    ports:
+      - "8080:8080"  # HTTP API
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    # Network
+    networks:
+      - facilitator-network
+
+    # Labels
+    labels:
+      - "com.ultravioletadao.service=facilitator"
+      - "com.ultravioletadao.project=facilitator"
+
+networks:
+  facilitator-network:
+    driver: bridge
+    name: facilitator-network
+
+# =============================================================================
+# Quick Commands:
+#
+# Start facilitator:
+#   docker-compose up -d
+#
+# View logs:
+#   docker-compose logs -f facilitator
+#
+# Restart facilitator:
+#   docker-compose restart facilitator
+#
+# Check service health:
+#   docker-compose ps
+#   curl http://localhost:8080/health
+#
+# Stop facilitator:
+#   docker-compose down
+#
+# Rebuild and restart:
+#   docker-compose up -d --build
+#
+# =============================================================================
